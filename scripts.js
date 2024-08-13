@@ -1,3 +1,8 @@
+document.getElementById("hamburger").onclick = function() {
+    var sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("active");
+};
+
 document.querySelector('.menu-toggle').addEventListener('click', () => {
     document.querySelector('.nav-links').classList.toggle('open');
 });
