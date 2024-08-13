@@ -1,25 +1,17 @@
+// JavaScript for toggling the sidebar menu
 document.getElementById("hamburger").onclick = function() {
     var sidebar = document.getElementById("sidebar");
     sidebar.classList.toggle("active");
 };
 
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('open');
-});
+// JavaScript for adding 'visible' class when sections are in view
+window.onscroll = function() {
+    var sections = document.querySelectorAll("section");
+    var scrollPosition = window.scrollY + window.innerHeight;
 
-const sections = document.querySelectorAll('section');
-const options = {
-    threshold: 0.25
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+    sections.forEach(function(section) {
+        if (scrollPosition > section.offsetTop + 100) {
+            section.classList.add("visible");
         }
     });
-}, options);
-
-sections.forEach(section => {
-    observer.observe(section);
-});
+};
