@@ -1,15 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('open');
+});
 
-    const onScroll = () => {
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                section.classList.add('visible');
-            }
-        });
-    };
+const sections = document.querySelectorAll('section');
+const options = {
+    threshold: 0.25
+};
 
-    window.addEventListener('scroll', onScroll);
-    onScroll();
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, options);
+
+sections.forEach(section => {
+    observer.observe(section);
 });
