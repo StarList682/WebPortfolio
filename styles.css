@@ -25,10 +25,11 @@ header nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 header nav ul li {
-    margin: 0 20px;
+    margin: 10px 20px; /* Увеличены отступы для лучшего внешнего вида */
 }
 
 header nav ul li a {
@@ -107,6 +108,14 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin-bottom: 30px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transform: translateY(20px);
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 section h2 {
@@ -173,17 +182,6 @@ section#contact p a:hover {
     color: #ffaa00;
 }
 
-section {
-    opacity: 0;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-    transform: translateY(20px);
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 footer {
     background: rgba(13, 17, 23, 0.9);
     color: #f5f5f5;
@@ -209,4 +207,45 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #41415f;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0; /* Увеличим отступы для вертикального списка */
+    }
+
+    header {
+        padding: 10px 0; /* Уменьшим padding для header на маленьких экранах */
+    }
+
+    section#home h1 {
+        font-size: 40px; /* Уменьшим размер заголовка для мобильных устройств */
+    }
+
+    section#home p {
+        font-size: 18px; /* Уменьшим размер текста для мобильных устройств */
+    }
+
+    section#home a {
+        padding: 10px 30px; /* Подкорректируем размер кнопки для мобильных устройств */
+        font-size: 16px;
+    }
+
+    section h2 {
+        font-size: 30px; /* Подкорректируем размер заголовков для мобильных устройств */
+    }
+
+    section p, section ul {
+        font-size: 18px; /* Уменьшим размер текста для мобильных устройств */
+    }
+
+    section#projects ul li, section#skills ul li {
+        width: 100%; /* На маленьких экранах проекты и навыки занимают всю ширину */
+    }
 }
