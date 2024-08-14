@@ -3,62 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samvel Aleksanyan | Portfolio</title>
+    <title>Portfolio | Samvel Aleksanyan</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="sidebar">
-        <div id="menu-icon" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <nav id="side-nav">
-            <ul>
-                <li><a href="#home" onclick="showSection('home')">Home</a></li>
-                <li><a href="#about" onclick="showSection('about')">About</a></li>
-                <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
-                <li><a href="#skills" onclick="showSection('skills')">Skills</a></li>
-                <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
-            </ul>
-        </nav>
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#about" onclick="showSection('about')">About</a>
+        <a href="#projects" onclick="showSection('projects')">Projects</a>
+        <a href="#skills" onclick="showSection('skills')">Skills</a>
+        <a href="#contact" onclick="showSection('contact')">Contact</a>
     </div>
 
-    <div id="content">
-        <section id="home">
-            <h1>Welcome to My Portfolio</h1>
-            <p>I'm Samvel Aleksanyan, a developer from Armenia.</p>
-        </section>
+    <div id="main">
+        <span class="openbtn" onclick="openNav()">&#9776;</span>
+        <div id="content">
+            <section id="home" class="section">
+                <h1>Welcome to My Portfolio</h1>
+                <p>Hi, I'm Samvel Aleksanyan, a web developer with a passion for creating clean and functional websites.</p>
+            </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm a passionate developer specializing in web applications using modern technologies.</p>
-        </section>
+            <section id="about" class="section" style="display: none;">
+                <h2>About Me</h2>
+                <p>I am a skilled web developer with experience in HTML, CSS, JavaScript, and Python. My focus is on creating modern, user-friendly websites.</p>
+            </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <p>Here are some of my projects:</p>
-            <ul>
-                <li><a href="https://github.com/StarList682" target="_blank">My GitHub Projects</a></li>
-            </ul>
-        </section>
+            <section id="projects" class="section" style="display: none;">
+                <h2>Projects</h2>
+                <p>Here are some of my recent works:</p>
+                <ul>
+                    <li><a href="https://github.com/StarList682/textspamer">Text Spammer</a> - Spamming in chats</li>
+                    <li><a href="https://github.com/StarList682/Telegram-Scraper-adder_BY_StarList">Telegram Scraper and Adder</a> - Scraping and adding members</li>
+                    <li><a href="https://github.com/StarList682/Telegram_Scraper_and_sander">Telegram Scraper and Sender</a> - Scraping and sending messages</li>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>Python</li>
-            </ul>
-        </section>
+                </ul>
+            </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>You can reach me on Telegram: <a href="https://t.me/StarList_saki0" target="_blank">Tap</a></p>
-        </section>
+            <section id="skills" class="section" style="display: none;">
+                <h2>My Skills</h2>
+                <p>Here are the programming languages I am proficient in:</p>
+                <ul class="skills-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>PHP</li>
+                    <li>Python</li>
+                    <li>C++</li>
+                </ul>
+            </section>
+
+            <section id="contact" class="section" style="display: none;">
+                <h2>Contact Me</h2>
+                <p>You can reach me via the following platforms:</p>
+                <ul>
+                    <li><a href="https://github.com/StarList682" target="_blank">GitHub</a></li>
+                    <li><a href="https://t.me/StarList_saki0" target="_blank">Telegram</a></li>
+                </ul>
+            </section>
+        </div>
     </div>
 
     <script src="scripts.js"></script>
