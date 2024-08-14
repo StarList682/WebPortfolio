@@ -1,21 +1,28 @@
-function toggleMenu() {
-    var sidebar = document.getElementById('sidebar');
-    var content = document.getElementById('content');
-    if (sidebar.style.left === '0px') {
-        sidebar.style.left = '-250px';
-        content.style.marginLeft = '0';
-    } else {
-        sidebar.style.left = '0';
-        content.style.marginLeft = '250px';
-    }
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+});
+
+function openNav() {
+    document.getElementById("sidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
 }
 
 function showSection(sectionId) {
-    var sections = document.querySelectorAll('section');
-    sections.forEach(function(section) {
-        section.classList.remove('visible');
-    });
-
-    var sectionToShow = document.getElementById(sectionId);
-    sectionToShow.classList.add('visible');
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.style.display = 'none');
+    document.getElementById(sectionId).style.display = 'block';
 }
